@@ -14,7 +14,7 @@ interface Props {
 
 const UsersPage = async ({ searchParams: { sortOrder } }: Props) => {
   const res = await fetch("https://jsonplaceholder.typicode.com/users", {
-    next: { revalidate: 1 },
+    cache: "no-store",
   });
   const users: Users[] = await res.json();
   const sortedUsers = sort(users).asc((u) =>
