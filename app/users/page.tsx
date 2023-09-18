@@ -1,4 +1,6 @@
-import React from "react";
+import Link from "next/link";
+import React, { Suspense } from "react";
+import { sort } from "fast-sort";
 
 interface Users {
   id: number;
@@ -6,31 +8,47 @@ interface Users {
   email: string;
 }
 
-const UsersPage = async () => {
+interface Props {
+  searchParams: { sortOrder: string };
+}
+
+const UsersPage = async ({ searchParams: { sortOrder } }: Props) => {
   const res = await fetch("https://jsonplaceholder.typicode.com/users", {
     next: { revalidate: 1 },
   });
   const users: Users[] = await res.json();
+  const sortedUsers = sort(users).asc((u) =>
+    sortOrder === "email" ? u.email : u.name
+  );
 
   return (
     <>
-      <h1>Users</h1>
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user) => (
-            <tr key={user.id}>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
+      <h1>Users {sortOrder}</h1>
+      <Link href="/users/new" className="btn">
+        New user
+      </Link>
+      <Suspense fallback={<p>Loading...</p>}>
+        <table className="table">
+          <thead>
+            <tr>
+              <th>
+                <Link href={"?sortOrder=name"}>Name</Link>
+              </th>
+              <th>
+                <Link href={"?sortOrder=email"}>Email</Link>
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {sortedUsers.map((user) => (
+              <tr key={user.id}>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </Suspense>
     </>
   );
 };
