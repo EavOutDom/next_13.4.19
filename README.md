@@ -2,6 +2,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+[setup database](https://bobbyhadz.com/blog/mysql-is-not-recognized-as-internal-or-external-command)
+
+[mysql database with prisma](https://www.prisma.io/docs/concepts/database-connectors/mysql)
+
 First, run the development server:
 
 ```bash
