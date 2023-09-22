@@ -4,6 +4,8 @@ This project was built by next.js v13.4.9 using [zod](https://github.com/colinha
 
 [setup database](https://bobbyhadz.com/blog/mysql-is-not-recognized-as-internal-or-external-command)
 
+[next-cloudinary](https://next.cloudinary.dev/)
+
 [mysql database with prisma](https://www.prisma.io/docs/concepts/database-connectors/mysql)
 
 [Configuring: Debugging](https://nextjs.org/docs/pages/building-your-application/configuring/debugging)

@@ -42,7 +42,7 @@ export async function DELETE(
   { params: { id } }: { params: { id: string } }
 ) {
   const product = await prisma.product.findUnique({
-    where: { id: parseInt(id) },
+    where: { id: parseInt(id) }, 
   });
   if (!product)
     return NextResponse.json({ error: "Product not found!" }, { status: 404 });
