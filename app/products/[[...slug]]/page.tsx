@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import React from "react";
 
 interface Props {
@@ -15,5 +16,12 @@ const ProductPage = ({
     </div>
   );
 };
+
+export async function generateMetadata(): Promise<Metadata> {
+  const product = await fetch("");
+  return {
+    title: "product.title",
+  };
+}
 
 export default ProductPage;

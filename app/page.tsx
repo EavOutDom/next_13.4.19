@@ -1,5 +1,5 @@
+import { Metadata } from "next";
 import Image from "next/image";
-import hats from "@/public/images/hats.jpeg";
 
 export default async function Home() {
   return (
@@ -22,3 +22,8 @@ export default async function Home() {
     </main>
   );
 }
+
+export const metadata: Metadata = {
+  title: "home page",
+  description: "home page description",
+};
