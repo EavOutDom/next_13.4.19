@@ -5,7 +5,7 @@ export default async function Home() {
   return (
     <main className="relative h-screen">
       <Image
-        src="https://zandokh.com/image/catalog/banner/2023/pchum-ben/pcb-sale1.jpg"
+        src="https://zandokh.com/image/catalog/banner/2023/pchum-ben/pcb-sale1.jp"
         alt="hats"
         fill
         className="object-cover"
