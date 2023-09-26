@@ -7,7 +7,7 @@ export async function GET(
   { params: { id } }: { params: { id: string } }
 ) {
   const user = await prisma.user.findUnique({
-    where: { id: parseInt(id) },
+    where: { id },
   });
   if (!user) {
     return NextResponse.json({ error: "User not found" }, { status: 404 });
@@ -25,7 +25,7 @@ export async function PUT(
     return NextResponse.json(validation.error.errors, { status: 400 });
   }
   const user = await prisma.user.findUnique({
-    where: { id: parseInt(id) },
+    where: { id },
   });
   if (!user) {
     return NextResponse.json({ error: "User not found" }, { status: 404 });
@@ -42,7 +42,7 @@ export async function DELETE(
   { params: { id } }: { params: { id: string } }
 ) {
   const user = await prisma.user.findUnique({
-    where: { id: parseInt(id) },
+    where: { id },
   });
   if (!user)
     return NextResponse.json({ error: "User not found!" }, { status: 404 });
