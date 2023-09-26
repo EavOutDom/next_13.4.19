@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Image from "next/image";
+import RenderHeavyComp from "./components/RenderHeavyComp";
 
 export default async function Home() {
   return (
@@ -10,7 +11,7 @@ export default async function Home() {
         id sint rerum eius soluta necessitatibus saepe eaque hic aspernatur sed
         temporibus.
       </h1>
-      <Image
+      {/* <Image
         src="https://zandokh.com/image/catalog/banner/2023/pchum-ben/pcb-sale1.jp"
         alt="hats"
         fill
@@ -18,7 +19,8 @@ export default async function Home() {
         sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
         quality={100}
         priority
-      />
+      /> */}
+      <RenderHeavyComp />
     </main>
   );
 }
