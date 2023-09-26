@@ -9,7 +9,7 @@ import {
   Link,
 } from "@react-email/components";
 
-export default function PreviewEmails({ name }: { name: string }) {
+const PreviewEmails = ({ name }: { name: string }) => {
   return (
     <Html>
       <Preview>Welcome aboard!</Preview>
@@ -25,4 +25,6 @@ export default function PreviewEmails({ name }: { name: string }) {
       </Tailwind>
     </Html>
   );
-}
+};
+
+export default PreviewEmails;
