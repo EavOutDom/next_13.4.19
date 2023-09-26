@@ -1,16 +1,18 @@
 import Image from "next/image";
-import Link from "next/link";
-import ProductCart from "./components/ProductCart";
-import { getServerSession } from "next-auth";
-import { authOptions } from "./api/auth/[...nextauth]/route";
+import hats from "@/public/images/hats.jpeg";
 
 export default async function Home() {
-  const session = await getServerSession(authOptions);
   return (
-    <main>
-      <h1>Hello {session && <span>{session.user!.name}</span>}</h1>
-      <Link href="users">Users</Link>
-      <ProductCart />
+    <main className="relative h-screen">
+      <Image
+        src="https://zandokh.com/image/catalog/banner/2023/pchum-ben/pcb-sale1.jpg"
+        alt="hats"
+        fill
+        className="object-cover"
+        sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+        quality={100}
+        priority
+      />
     </main>
   );
 }
