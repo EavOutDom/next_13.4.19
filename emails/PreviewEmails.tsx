@@ -1,17 +1,28 @@
 import React from "react";
-import { Html, Button } from "@react-email/components";
+import {
+  Html,
+  Preview,
+  Body,
+  Tailwind,
+  Container,
+  Text,
+  Link,
+} from "@react-email/components";
 
-export default function Email() {
+export default function PreviewEmails({ name }: { name: string }) {
   return (
     <Html>
-      <Button
-        pX={20}
-        pY={12}
-        href="https://example.com"
-        style={{ background: "#000", color: "#fff" }}
-      >
-        Click me
-      </Button>
+      <Preview>Welcome aboard!</Preview>
+      <Tailwind>
+        <Body className="bg-white">
+          <Container>
+            <Text className="font-bold text-3xl">Hello {name}</Text>
+            <Link href="https://eav-outdom.web.app/">
+              www.eav-outdom.web.app
+            </Link>
+          </Container>
+        </Body>
+      </Tailwind>
     </Html>
   );
 }
