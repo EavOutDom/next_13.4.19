@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import { Inter, Roboto } from "next/font/google";
 import localFont from "next/font/local";
 import Navbar from "./Navbar";
-import AuthProvider from "./auth/Provider";
+import "@radix-ui/themes/styles.css";
+import { Theme } from "@radix-ui/themes";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,8 +35,10 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="winter">
       <body className={inter.className}>
-        <Navbar />
-        <main>{children}</main>
+        <Theme>
+          <Navbar />
+          <main className="p-5">{children}</main>
+        </Theme>
       </body>
     </html>
   );
