@@ -9,21 +9,3 @@ This project was built by next.js v13.4.9 using [zod](https://github.com/colinha
 [mysql database with prisma](https://www.prisma.io/docs/concepts/database-connectors/mysql)
 
 [Configuring: Debugging](https://nextjs.org/docs/pages/building-your-application/configuring/debugging)
-
-run the development server:
-
-```bash
-npm run dev
-```
-
-build:
-
-```bash
-npm run build
-```
-
-run build time:
-
-```bash
-npm run start
-```
