@@ -1,34 +1,30 @@
-"use client";
 import Link from "next/link";
 import React from "react";
-import { useSession } from "next-auth/react";
+import { AiFillBug } from "react-icons/ai";
 
 const Navbar = () => {
-  const { status, data: session } = useSession();
-
+  const link = [
+    { href: "/", label: "Dashboard" },
+    { href: "/issues", label: "Issues" },
+  ];
   return (
-    <ul className="flex bg-slate-200 p-5 gap-5">
-      <li>
-        <Link href="/">Next.js</Link>
-      </li>
-      <li>
-        <Link href="/users">Users</Link>
-      </li>
-      {status === "loading" && <li>Loading...</li>}
-      {status === "authenticated" && (
-        <>
-          <li>{session.user!.name}</li>
-          <li>
-            <Link href="/api/auth/signout">Sign Out</Link>
+    <nav className="flex h-14 space-x-6 items-center border-b px-5">
+      <Link href="/">
+        <AiFillBug />
+      </Link>
+      <ul className="flex space-x-6">
+        {link.map((item, index) => (
+          <li key={index}>
+            <Link
+              href={item.href}
+              className="text-zinc-500 hover:text-zinc-800 transition-all"
+            >
+              {item.label}
+            </Link>
           </li>
-        </>
-      )}
-      {status === "unauthenticated" && (
-        <li>
-          <Link href="/api/auth/signin">Login</Link>
-        </li>
-      )}
-    </ul>
+        ))}
+      </ul>
+    </nav>
   );
 };
 

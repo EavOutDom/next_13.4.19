@@ -4,7 +4,6 @@ import { Inter, Roboto } from "next/font/google";
 import localFont from "next/font/local";
 import Navbar from "./Navbar";
 import AuthProvider from "./auth/Provider";
-import GoogleAnalyticsScript from "./GoogleAnalyticsScript";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,7 +24,6 @@ export const metadata: Metadata = {
     title: "...",
     description: "...",
   },
-  
 };
 
 export default function RootLayout({
@@ -35,12 +33,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-theme="winter">
-      <GoogleAnalyticsScript />
-      <body className={menlo.variable}>
-        <AuthProvider>
-          <Navbar />
-          <main className="p-5">{children}</main>
-        </AuthProvider>
+      <body className={inter.className}>
+        <Navbar />
+        <main className="p-5">{children}</main>
       </body>
     </html>
   );
