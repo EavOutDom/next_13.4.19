@@ -11,6 +11,7 @@ import { createIssueSchema } from "@/app/validationSchemas";
 import { z } from "zod";
 import ErrorMessage from "@/app/components/ErrorMessage";
 import Spinner from "@/app/components/Spinner";
+import prisma from "@/prisma/client";
 
 type IssueForm = z.infer<typeof createIssueSchema>;
 
@@ -30,8 +31,11 @@ const NewIssuePage = () => {
   const onSubmit = handleSubmit(async (data) => {
     try {
       setSubmitting(true);
-      await axios.post("/api/issues", data);
-      router.push("/issues");
+      const res = await axios.post("/api/issues", data);
+      if (res) {
+        await prisma.issue.findMany();
+        router.push("/issues");
+      }
     } catch (e) {
       setError("An unexpected error occurred.");
     } finally {
