@@ -5,9 +5,12 @@ import { Inter, Roboto } from "next/font/google";
 import localFont from "next/font/local";
 import Navbar from "./Navbar";
 import "@radix-ui/themes/styles.css";
-import { Theme, ThemePanel } from "@radix-ui/themes";
+import { Theme } from "@radix-ui/themes";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 
 const roboto = Roboto({
   subsets: ["latin"],
